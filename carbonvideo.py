@@ -22,13 +22,13 @@ except NameError:
     input_func = input('What video, user, or YouTube channel are you looking for? ')
 query = input_func.replace('+', ' ')
 url = 'https://www.youtube.com/results?search_query=' + query
-source_code = requests.get(url, timeout=20)
+source_code = requests.get(url, timeout=10)
 plain_text = source_code.text
 soup = BeautifulSoup(plain_text, "html.parser")
 videos = soup.findAll('div', {'class': 'yt-lockup-video'})
 video = videos[0].contents[0].contents[0].contents[0]
 try:
     link = video['href']
-    webbrowser.open('https://www.youtube.com/user/' + query) + webbrowser.open('https://www.youtube.com/' + link) + webbrowser.open('https://www.youtube.com/channel/' + query)
+    webbrowser.open('https://www.youtube.com/user/' + query) + webbrowser.open('https://www.youtube.com/channel/' + query) + webbrowser.open('https://www.youtube.com/' + link)
 except KeyError:
     print("No results found")
