@@ -20,7 +20,7 @@ try:
     input_func = raw_input('What video, user, or YouTube channel are you looking for? ')
 except NameError:
     input_func = input('What video, user, or YouTube channel are you looking for? ')
-query = input_func.replace(' ', '+')
+query = input_func.replace('+', ' ')
 url = 'https://www.youtube.com/results?search_query=' + query
 source_code = requests.get(url, timeout=20)
 plain_text = source_code.text
