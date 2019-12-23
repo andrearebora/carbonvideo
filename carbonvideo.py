@@ -29,6 +29,6 @@ videos = soup.findAll('div', {'class': 'yt-lockup-video'})
 video = videos[0].contents[0].contents[0].contents[0]
 try:
     link = video['href']
-    webbrowser.open('https://www.youtube.com/' + link) + webbrowser.open('https://www.youtube.com/user/' + query) + webbrowser.open('https://www.youtube.com/channel/' + query)
+    webbrowser.open('https://www.youtube.com/user/' + query) + webbrowser.open('https://www.youtube.com/' + link) + webbrowser.open('https://www.youtube.com/channel/' + query)
 except KeyError:
     print("No results found")
