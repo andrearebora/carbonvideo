@@ -1,2 +1,4 @@
+#Requirements for carbonvideo
+
 requests
 BeautifulSoup
